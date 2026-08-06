@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'features/auth/presentation/login/login_page.dart';
+import 'core/theme/app_theme.dart';
 
 void main() {
   runApp(const PlacementTrackerApp());
@@ -13,10 +14,7 @@ class PlacementTrackerApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Placement Tracker',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
-      ),
+      theme: AppTheme.lightTheme,
       home: const LoginPage(),
     );
   }
