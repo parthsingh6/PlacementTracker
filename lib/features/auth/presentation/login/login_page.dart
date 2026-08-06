@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_text_styles.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -60,16 +61,8 @@ class _LoginPageState extends State<LoginPage> {
 
               const SizedBox(height: 22),
 
-              // App Name
               const Center(
-                child: Text(
-                  'Placement Tracker',
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.textPrimary,
-                  ),
-                ),
+                child: Text('Placement Tracker', style: AppTextStyles.heading1),
               ),
 
               const SizedBox(height: 8),
@@ -78,43 +71,26 @@ class _LoginPageState extends State<LoginPage> {
               const Center(
                 child: Text(
                   'Your career journey, organized.',
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: AppColors.textSecondary,
-                  ),
+                  style: AppTextStyles.body,
                 ),
               ),
 
               const SizedBox(height: 55),
 
               // Welcome
-              const Text(
-                'Welcome Back 👋',
-                style: TextStyle(
-                  fontSize: 26,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.textPrimary,
-                ),
-              ),
+              const Text('Welcome Back 👋', style: AppTextStyles.heading2),
 
               const SizedBox(height: 8),
 
               const Text(
                 'Sign in to continue your placement journey.',
-                style: TextStyle(fontSize: 15, color: AppColors.textSecondary),
+                style: AppTextStyles.body,
               ),
 
               const SizedBox(height: 32),
 
               // Email Label
-              const Text(
-                'Email',
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                  color: AppColors.textHeading,
-                ),
-              ),
+              const Text('Email', style: AppTextStyles.label),
 
               const SizedBox(height: 8),
 
@@ -155,14 +131,7 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(height: 22),
 
               // Password Label
-              const Text(
-                'Password',
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                  color: AppColors.textHeading,
-                ),
-              ),
+              const Text('Password', style: AppTextStyles.label),
 
               const SizedBox(height: 8),
 
@@ -251,10 +220,7 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(14),
                     ),
                   ),
-                  child: const Text(
-                    'Sign In',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-                  ),
+                  child: const Text('Sign In', style: AppTextStyles.button),
                 ),
               ),
             ],
