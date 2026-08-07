@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "306250089575",
+    "project_id": "hireflow-d9678",
+    "storage_bucket": "hireflow-d9678.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:306250089575:android:b1bd90aef946a50a9380c2",
+        "android_client_info": {
+          "package_name": "com.example.placement_tracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpKaKiiBAhEe7WSjw8U6zS7rnw7HuuRyc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
