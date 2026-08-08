@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_text_styles.dart';
 import '../../../../shared/widgets/primary_button.dart';
 import '../../../../shared/widgets/custom_text_field.dart';
 import '../../../../shared/widgets/app_logo.dart';
 import '../../services/auth_service.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import '../../../dashboard/presentation/dashboard_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -19,7 +21,9 @@ class _LoginPageState extends State<LoginPage> {
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
   final AuthService _authService = AuthService();
+
   Future<void> _login() async {
     String email = _emailController.text.trim();
     String password = _passwordController.text.trim();
@@ -34,12 +38,15 @@ class _LoginPageState extends State<LoginPage> {
     try {
       await _authService.signIn(email: email, password: password);
 
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(const SnackBar(content: Text("Login Successful")));
+      if (!mounted) return;
 
-      // TODO: Navigate to Dashboard
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const DashboardPage()),
+      );
     } on FirebaseAuthException catch (e) {
+      if (!mounted) return;
+
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(SnackBar(content: Text(e.message ?? "Login failed")));
@@ -68,7 +75,6 @@ class _LoginPageState extends State<LoginPage> {
 
               const SizedBox(height: 8),
 
-              // App Tagline
               const Center(
                 child: Text(
                   'Your career journey, organized.',
@@ -78,7 +84,6 @@ class _LoginPageState extends State<LoginPage> {
 
               const SizedBox(height: 55),
 
-              // Welcome
               const Text('Welcome Back 👋', style: AppTextStyles.heading2),
 
               const SizedBox(height: 8),
@@ -90,7 +95,6 @@ class _LoginPageState extends State<LoginPage> {
 
               const SizedBox(height: 32),
 
-              // Email Label
               const Text('Email', style: AppTextStyles.label),
 
               const SizedBox(height: 8),
@@ -104,7 +108,6 @@ class _LoginPageState extends State<LoginPage> {
 
               const SizedBox(height: 22),
 
-              // Password Label
               const Text('Password', style: AppTextStyles.label),
 
               const SizedBox(height: 8),
@@ -131,7 +134,6 @@ class _LoginPageState extends State<LoginPage> {
 
               const SizedBox(height: 10),
 
-              // Forgot Password
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
@@ -150,7 +152,6 @@ class _LoginPageState extends State<LoginPage> {
 
               const SizedBox(height: 18),
 
-              // Sign In Button
               PrimaryButton(text: 'Sign In', onPressed: _login),
             ],
           ),
